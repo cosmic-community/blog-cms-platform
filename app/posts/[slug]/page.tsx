@@ -12,7 +12,7 @@ interface PostPageProps {
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
-  return posts.map((post) => ({
+  return posts.map((post: Post) => ({
     slug: post.slug,
   }))
 }
@@ -143,7 +143,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="mb-12">
             <h3 className="text-sm font-medium text-gray-900 mb-4">Tags</h3>
             <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
+              {tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
